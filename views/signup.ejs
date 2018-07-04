@@ -1,0 +1,187 @@
+<%- include layouts/header.ejs %>
+
+    <div class="container">
+    <div class="col-md-2"></div>
+    <div class="row col-md-8" style="margin-top:50px;">
+<form class="signup-form" method="post" id="signup_form" action="/register" style="margin-top: -60px;">
+                        <div class="margin-b-30">
+                            <h1 class="login-form-title">Signup</h1>
+
+                        </div>
+                        <% if (locals.messages){ %>
+
+                        <div class="alert alert-danger">
+                        <strong><%= locals.messages.msg %></strong>
+                        </div>
+
+                        <% } %>
+                      <div class="form-group iw" style="padding-bottom: 7px;">
+
+                            <input class="form-control" type="text" id="first_name" name="first_name"/>
+                            <label id="label_firstname" for="first_name">First Name *</label>
+                            <div id="bar_firstname" style="border-bottom: 2px solid #38b938;width: 0;margin-top: -2.1px;"></div>
+
+                        <!-- inputttt area -->
+                        </div>
+                        <div class="form-group iw" style="padding-bottom: 7px;">
+                            <input class="form-control" type="text" id="middle_name" placeholder="" name="middle_name"/>
+                            <label id="label_middlename" for="middle_name">Middle Name </label>
+                            <div id="bar_middlename" style="border-bottom: 2px solid #38b938;width: 0;margin-top: -2.1px;"></div>
+                        </div>
+                        <div class="form-group iw" style="padding-bottom: 7px;">
+                            <input class="form-control" type="text" id="last_name" placeholder="" name="last_name"/>
+                            <label id="label_lastname" for="last_name">Last Name *</label>
+                            <div id="bar_lastname" style="border-bottom: 2px solid #38b938;width: 0;margin-top: -2.1px;"></div>
+                        </div>
+
+                        <div class="form-group iw" style="padding-bottom: 7px;">
+                            <div id="error" style="position: absolute;top: -15px;left: 50px;font-size: 9px;color: red;"></div>
+                            <input class="form-control" type="email" id="email" placeholder="" name="email"/>
+                            <label id="label_email" for="email">Email *</label>
+                            <div id="bar_email" style="border-bottom: 2px solid #38b938;width: 0;margin-top: -2.1px;"></div>
+                        </div>
+
+                        <div class="form-group iw" style="padding-bottom: 7px;">
+                            <textarea class="form-control" id="address" name="address" placeholder=""></textarea>
+                            <label id="label_address" for="address">Address</label>
+                            <div id="bar_address" style="border-bottom: 2px solid #38b938;width: 0;margin-top: -2.1px;"></div>
+                        </div>
+
+                        <div class="form-group iw" style="padding-bottom: 0px;">
+                            <input class="form-control" type="text" autocomplete="on" id="contact_number" placeholder="" name="phone"/>
+                            <label id="label_contact_number" for="contact_number">Phone</label>
+                            <div id="bar_contact_number" style="border-bottom: 2px solid #38b938;width: 0;margin-top: -2.1px;"></div>
+                            <div class="group2">
+                                <i id="icon_dialpad" class="fa fa-bars"></i>
+                            </div>
+
+                        </div>
+
+                        <div id="dialpad" style="position:absolute;background: rgba(255,255,255,0.8);z-index: 100;padding: 15px; box-shadow: 0 3px 5px rgba(0, 0, 0, 0.3);width:270px;padding-top: 30px;display: none;">
+                            <div id="close_dialpad" style="position: absolute;right: 10px;top: 7px;cursor: pointer;"><i class="fa fa-times"></i></i> </div>
+                            <div class="col-md-12">
+
+                                <div class="row">
+
+                                    <div class="col-xs-4" style="">
+                                        <div id="no1" style="border: 1px solid #a38c8c;width: 50px;padding-top:17px;padding-bottom:17px;text-align: center;">
+                                            1
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-4" style="">
+                                        <div id="no2" style="border: 1px solid #a38c8c;width: 50px;padding-top:17px;padding-bottom:17px;text-align: center;">
+                                            2
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-4">
+                                        <div id="no3" style="border: 1px solid #a38c8c;width: 50px;padding-top:17px;padding-bottom:17px;text-align: center;">
+                                            3
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                                <div class="row" style="margin-top: 15px;">
+
+                                    <div class="col-xs-4" style="">
+                                        <div id="no4" style="border: 1px solid #a38c8c;width: 50px;padding-top:17px;padding-bottom:17px;text-align: center;">
+                                            4
+                                        </div>
+                                    </div>
+                                    <div  class="col-xs-4" style="">
+                                        <div id="no5" style="border: 1px solid #a38c8c;width: 50px;padding-top:17px;padding-bottom:17px;text-align: center;">
+                                            5
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-4">
+                                        <div id="no6" style="border: 1px solid #a38c8c;width: 50px;padding-top:17px;padding-bottom:17px;text-align: center;">
+                                            6
+                                        </div>
+                                    </div>
+
+                                </div>
+
+
+                                <div class="row" style="margin-top: 15px;">
+
+                                    <div class="col-xs-4" style="">
+                                        <div id="no7" style="border: 1px solid #a38c8c;width: 50px;padding-top:17px;padding-bottom:17px;text-align: center;">
+                                            7
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-4" style="">
+                                        <div id="no8" style="border: 1px solid #a38c8c;width: 50px;padding-top:17px;padding-bottom:17px;text-align: center;">
+                                            8
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-4">
+                                        <div id="no9" style="border: 1px solid #a38c8c;width: 50px;padding-top:17px;padding-bottom:17px;text-align: center;">
+                                            9
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                                <div class="row" style="margin-top: 15px;">
+                                <div class="" style="display: table;margin: 0 auto;">
+                                    <div id="no0" style="border: 1px solid #a38c8c;width: 50px;padding-top:17px;padding-bottom:17px;text-align: center;">
+                                        0
+                                    </div>
+                                </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                      <!--  <div class="form-group">
+
+                            <input id="calender" type="text" style="border: 1px solid #ccc;border-radius: 4px;font-size: 14px;font-family:'Dancing Script', cursive" class="awe-calendar awe-input from" placeholder="Select Date" name="date_of_birth" >
+                        </div> -->
+
+
+                        <div class="form-group iw" style="padding-bottom: 0px;" id="password_wrapper">
+                            <input class="form-control active" id="pass2" type="password" autocomplete="on" id="signup_password" placeholder="" name="password"/>
+                            <label id="label_pass2" for="pass2">Password *</label>
+                            <div id="bar_password" style="border-bottom: 2px solid #38b938;width: 0;margin-top: -2.1px;"></div>
+                            <div class="group2">
+                                <i id="icon" class="fa fa-eye-slash"></i>
+                            </div>
+
+
+                            <div class="strength-lines" style="cursor:help">
+                                <div class="line" id="one"></div>
+                                <div class="line" id="two"></div>
+                                <div class="line" id="three"></div>
+                            </div>
+
+                        </div>
+
+                        <input type="hidden" name="user_level" value=1>
+
+                        <div class="form-group iw" style="padding-bottom: 7px;">
+                            <input class="form-control active"  type="password" autocomplete="on" id="confirm_password" placeholder="" name="confirm_password"/>
+                            <label id="label_confirm_password" for="confirm_password">Confirm Password *</label>
+                            <div id="bar_confirm_password" style="border-bottom: 2px solid #38b938;width: 0;margin-top: -2.1px;"></div>
+                            <div class="group2">
+                                <i id="icon_check" class="fa fa-check"></i>
+                            </div>
+                        </div>
+                        <div class="margin-b-30">
+                            <p class="font-size-13">
+                                By signing up you agree to the
+                                <a href="javascript:;">Terms &amp; Conditions</a>
+                                and
+                                <a href="javascript:;">Privacy &amp; Policy</a>
+                            </p>
+                        </div>
+                        <input type="submit" id="signup-submit-btn" class="btn-base-bg btn-base-sm btn-block radius-3 margin-b-30" value="Create Account">
+                        <p>
+                            Already have account?
+                            <a href="/login" id="back-to-login-form-btn">Login</a>
+                        </p>
+                    </form>
+</div>
+</div>
+    <div class="col-md-2"></div>
+<%- include layouts/footer.ejs %>

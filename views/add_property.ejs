@@ -1,0 +1,160 @@
+<%- include layouts/header.ejs %>
+<nav class="navbar navbar-default" >
+<div class="container-fluid">
+<ul class="nav navbar-nav" style="font-size:12px; !important">
+  <li><a href="/">Home</a></li>
+  <li><a href="/properties">My Properties</a></li>
+  <li><a href="/listing">Search Properties</a></li>
+
+  <li><a href="/properties/add">Add Property</a></li>
+  <li><a href="#">Profile</a></li>
+</ul>
+
+<ul class="nav navbar-nav pull-right">
+  <li><a href="#">Welcome</a></li>
+  <li><a href="/logout">Logout</a></li>
+</ul>
+</div>
+</nav>
+
+<div class="container">
+            <div class="row">
+            <div class="col-md-2"></div>
+            <div class="col-md-8">
+
+           <h2>Add a New Property </h2>
+            <form method="post" action="/properties/add">
+                    <div class="form-group">
+                        <label>Title</label>
+                        <input class="form-control" type="text" name="property_title" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Address</label>
+                        <textarea class="form-control" name="address" required cols="30" rows="5"></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Category</label>
+                        <select class="form-control" type="text" name="category" required>
+                            <option value="Sale">Sale</option>
+                            <option value="Rent">Rent</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Country</label>
+                        <input type="text" class="form-control" name="country" value="India">
+                    </div>
+
+
+                    <div class="form-group">
+                        <label>City</label>
+                        <input type="text" class="form-control" name="city" value="">
+                    </div>
+
+
+                    <div class="form-group">
+                        <label>Location</label>
+                        <input class="form-control" type="text" name="location" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Bedrooms</label>
+                        <select class="form-control" name="bedroom">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="4+">4+</option>
+                        </select>
+                    </div>
+
+
+                    <div class="form-group">
+                        <label>Bathrooms</label>
+                         <select class="form-control" name="bathroom">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="4+">4+</option>
+                        </select>
+                    </div>
+
+
+                    <div class="form-group">
+                        <label>Carpet Area</label>
+                        <input type="text" class="form-control" name="carpet_area">
+                    </div>
+
+
+                    <div class="form-group">
+                        <label>Built Up Area</label>
+                        <input type="text" class="form-control" name="builtup_area">
+                    </div>
+
+
+                    <div class="form-group">
+                        <label>Description</label>
+                        <textarea class="form-control" name="description">
+                        </textarea>
+                    </div>
+
+
+                    <div class="form-group">
+                        <label>Year Built</label>
+                        <input type="text" class="form-control" name="year_built">
+                    </div>
+
+
+                    <div class="form-group">
+                        <label>Owner</label>
+                        <input type="text" class="form-control" name="owner">
+
+                    </div> 
+
+
+                    <div class="form-group">
+                        <label>Featured</label>
+                        <select class="form-control" name="is_featured">
+                            <option value="yes">Yes</option>
+                            <option value="no">No</option>
+                        </select>
+                    </div>
+
+
+                     <div class="form-group">
+                        <label>Property Price</label>
+                        <input type="text" class="form-control" name="price">
+                    </div>
+<!-- 
+                    <div class="form-group">
+                        <label>images</label>
+                        <input type="file" name="upload" multiple>
+                    </div> -->
+
+                    <div class="form-group">
+                     <input type="submit" name="submit" value="Save">
+                       <input type="button" name="cancel" value="Cancel" class="cancel" onClick="cancelAdd()">
+                   </div>
+            </form>
+
+            <form method="post" enctype="multipart/form-data" action="/properties/upload">
+                    <div class="form-group">
+                        <label>images</label>
+                        <input class="form-control btn btn-primary" type="file" name="upload" multiple>
+                    </div> 
+
+                    <div class="form-group">
+                     <input type="submit" name="submit" value="Upload">
+                       <!-- <input type="button" name="cancel" value="Cancel" class="cancel" onClick="cancelAdd()"> -->
+                   </div>
+            </form>
+            
+        </div>
+        </div>
+        <div class="col-md-2"></div>
+</div>        
+<scri
+<%- include layouts/footer.ejs %>

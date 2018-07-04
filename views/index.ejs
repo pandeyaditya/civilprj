@@ -1,0 +1,856 @@
+<%- include layouts/header.ejs %>
+
+	<div class="" data-story-bg="hero-img/hero1" id="section0" data-bg-position="center center" data-bg-size="cover" style="margin-top: 100px;">
+            <div class="myContent intro">
+
+                <div class="mainx" style="margin-top: 0px !important; display: block;">
+
+
+                    <div class="container" style="">
+
+                        <div class="row row-centered">
+
+                            <div class="col-md-12" style="">
+
+
+                                <div class="col-md-4 col-centered square-flipa animated fadeInUp" style="padding-bottom: 340px !important;">
+                                    <div class="" style="width: 100%;float: left;">
+                                        <div style="margin-left: auto;margin-right: auto;width: 250px;float: right;">
+                                            <div class="square icon" data-image="" style="background: url(&quot;&quot;) rgb(254, 238, 205); width: 250px; height: 250px; position: relative; border-bottom-left-radius: 0px; border-bottom-right-radius: 0px; padding: 10px;">
+                                                <div class="square-container" style="border: 1px solid #898989;">
+                                                    <!--<div class="align-center panel"><img src="http://titanicthemes.com/files/flipbox/kallyas2.png" class="boxshadow" alt=""></div> -->
+                                                    <b class="textshadow panel">Buy / Sell</b>
+                                                    <h3 class="textshadow panel" style="font-size: 14px;">Property Buy &amp; Sell</h3>
+
+                                                    <a href="/listing" class="btn-gold-bg-slide btn-slide btn-slide-corner btn-base-sm browse_buynsell hvr-bob">BROWSE</a>
+                                                </div>
+
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+
+
+
+                                <div class="col-md-4 col-centered square-flipa animated fadeInUp" style="padding-bottom: 340px !important;">
+                                    <div class="" style="width: 100%;float: left;">
+                                        <div style="margin-left: auto;margin-right: auto;width: 250px;">
+                                            <div class="square icon" data-image="" style="background: url(&quot;&quot;) rgb(254, 238, 205); width: 250px; height: 250px; position: relative; border-bottom-left-radius: 0px; border-bottom-right-radius: 0px; padding: 10px;">
+                                                <div class="square-container" style="border: 1px solid #898989;">
+                                                    <!--<div class="align-center panel"><img src="http://titanicthemes.com/files/flipbox/kallyas2.png" class="boxshadow" alt=""></div> -->
+                                                    <b class="textshadow panel">LEASE / RENT</b>
+                                                    <h3 class="textshadow panel" style="font-size: 14px;">Property Lease &amp; Rent</h3>
+
+                                                    <button type="button" class="btn-gold-bg-slide btn-slide btn-slide-corner btn-base-sm browse_leasenrent hvr-bob"  data-toggle="modal" data-target="#rentModal">BROWSE</button>
+                                                </div>
+
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-4 col-centered square-flipa animated fadeInUp" style="padding-bottom: 340px !important;">
+                                    <div class="" style="width: 100%;float: left;">
+                                        <div style="margin-left: auto;margin-right: auto;width: 250px;float: left;">
+                                            <div class="square icon" data-image="" style="background: url(&quot;&quot;) rgb(254, 238, 205); width: 250px; height: 250px; position: relative; border-bottom-left-radius: 0px; border-bottom-right-radius: 0px; padding: 10px;">
+                                                <div class="square-container" style="border: 1px solid #898989;">
+                                                    <!--<div class="align-center panel"><img src="http://titanicthemes.com/files/flipbox/kallyas2.png" class="boxshadow" alt=""></div> -->
+                                                    <b class="textshadow panel">CLASSIFIEDS</b>
+                                                    <h3 class="textshadow panel" style="font-size: 14px;">Real Estate Services</h3>
+
+                                                    <button type="button" class="btn-gold-bg-slide btn-slide btn-slide-corner btn-base-sm browse_classifiedservices hvr-bob"  data-toggle="modal" data-target="#rentClassifieds">BROWSE</button>
+                                                </div>
+
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                            </div>
+
+
+
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="page-transition">
+                    <div class="div"></div>
+                    <div class="div"></div>
+                    <div class="div"></div>
+                    <div class="div"></div>
+                </div>
+
+                <div class="buynsell_bubbles" style="display: none;">
+
+                    <!-- back button starts -->
+                    <div id="buynsell_back_btn" style="width: auto;height: auto;position: fixed;top: 130px;right: 50px;z-index: 100000;cursor: pointer;">
+                        <img src="/images/images/back_btn.png" width="30"> GO BACK
+                    </div>
+                    <!-- back button ends -->
+
+                    <div class="container">
+                        <div class="row">
+
+                            <div class="col-md-12">
+                                <div class="square-flipa col-md-6" style="padding-bottom: 450px !important;">
+                                    <div style="width: 100%;float: left;">
+                                        <div style="position: relative;margin-left: auto;margin-right: auto;width: 250px;float: right;margin-left: 40px;">
+
+                                            <div class="testimonials-v3 icon" style="padding: 10px;background: #FEEECD;width: 250px;overflow: hidden;">
+                                                <div style="border: 1px solid #898989;overflow: hidden;">
+
+                                                    <div class="margin-b-30" style="margin-top: -30px;">
+                                                        <h6 class="testimonials-v3-subtitle"></h6>
+                                                        <img class="testimonials-v3-user-img radius-circle" src="/images/images/buy.png" alt="">
+                                                        <h3 class="testimonials-v3-title">BUY PROPERTY</h3>
+                                                        <p class="testimonials-v3-quote" style="color: #000;font-size: 13px;">Buy your desired property with us.</p>
+                                                    </div>
+
+                                                    <h2 class="boxshadow btn-gold-bg-slide btn-slide btn-slide-corner btn-base-lg buy_browse" style="font-size: 14px;margin-top: 4px;">BROWSE</h2>
+                                                    <div style="width: 100%;height: 15px;"></div>
+                                                </div>
+                                            </div>
+                                            <div class="buy_property">
+
+                                                <div class="" style="width: 100%;float: left;padding: 15px;">
+
+                                                    <div class="animated fadeInUp" style="width: 100%;float: left;color: #fff;text-align: center;margin-top: 30%;font-weight: bold;">
+                                                        Buy your desired property from more than 1000+ property listing
+                                                    </div>
+
+                                                </div>
+
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+                                </div>
+
+
+
+
+                                <div class="square-flipa col-md-6" style="padding-bottom: 450px !important;">
+                                    <div style="width: 100%;float: left;">
+                                        <div style="position: relative;margin-left: auto;margin-right: auto;width: 250px;float: left;margin-left: 40px;">
+                                            <div class="testimonials-v3 icon" style="padding: 10px;background: #FEEECD;width: 250px;">
+                                                <div style="border: 1px solid #898989;">
+                                                    <div class="margin-b-30" style="margin-top: -30px;">
+                                                        <h6 class="testimonials-v3-subtitle"></h6>
+                                                        <img class="testimonials-v3-user-img radius-circle" src="/images/images/sell.png" alt="">
+                                                        <h3 class="testimonials-v3-title">SELL PROPERTY</h3>
+                                                        <p class="testimonials-v3-quote" style="color: #000;font-size: 13px;">Sell your own property with us.</p>
+                                                    </div>
+
+                                                    <a href="/submit-property?index=sell" target="_blank">   <h2 class="boxshadow btn-gold-bg-slide btn-slide btn-slide-corner btn-base-lg sell_browse" style="font-size: 14px;margin-top: 4px;">BROWSE</h2></a>
+                                                    <div style="width: 100%;height: 15px;"></div>
+                                                </div>
+                                            </div>
+                                            <div class="sell_property">
+
+                                                <div class="" style="width: 100%;float: left;padding: 15px;">
+
+                                                    <div class="animated fadeInUp" style="width: 100%;float: left;color: #fff;text-align: center;margin-top: 30%;font-weight: bold;">
+                                                        Sell your property in more than 1000+ property listing
+                                                    </div>
+
+                                                </div>
+
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+
+
+
+
+
+
+
+                            </div>
+
+                        </div>
+                    </div>
+
+
+
+
+                </div>
+
+
+               <div class="buy_bubbles" style="display: none;">
+
+                    <!-- back button starts -->
+                    <div id="buy_back_btn" style="width: auto;height: auto;position: fixed;top: 130px;right: 50px;cursor: pointer;">
+                        <img src="/images/images/back_btn.png" width="30"> GO BACK
+                    </div>
+
+                    <!-- back button ends -->
+
+                    <div class="container">
+                        <div class="row">
+
+                            <div class="col-md-12">
+
+
+
+                                <div class="square-flipa col-md-6" style="padding-bottom: 450px !important;">
+                                    <div style="width: 100%;float: left;">
+                                        <div style="position: relative;margin-left: auto;margin-right: auto;width: 250px;float: right;margin-right: 20px;">
+                                            <div class="testimonials-v3 icon" style="padding: 10px;background: #FEEECD;width: 250px;">
+                                                <div style="border: 1px solid #898989;">
+                                                    <div class="margin-b-30" style="margin-top: -30px;">
+                                                        <h6 class="testimonials-v3-subtitle"></h6>
+                                                        <img class="testimonials-v3-user-img radius-circle" src="/images/images/aggregation_icon.png" alt="">
+                                                        <h3 class="testimonials-v3-title">AGGREGATION</h3>
+                                                        <p class="testimonials-v3-quote" style="color: #000;font-size: 13px;">Online Property Aggregator</p>
+                                                    </div>
+
+                                                    <a target="_blank" href="/listing?index=aggregation&amp;type=sell">  <h2 class="boxshadow btn-gold-bg-slide btn-slide btn-slide-corner btn-base-lg aggregation_browse" style="font-size: 14px;margin-top: 4px;">BROWSE</h2></a>
+                                                    <div style="width: 100%;height: 15px;"></div>
+                                                </div>
+                                            </div>
+                                            <div class="aggregation_property">
+
+                                                <div class="" style="width: 100%;float: left;padding: 15px;">
+
+                                                    <div class="animated fadeInUp" style="width: 100%;float: left;color: #fff;text-align: center;margin-top: 30%;font-weight: bold;">
+                                                        Online Leading Property Aggregator
+                                                    </div>
+
+                                                </div>
+
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+
+
+
+
+                                <div class="square-flipa col-md-6" style="padding-bottom: 450px !important;">
+                                    <div style="width: 100%;float: left;">
+                                        <div style="position: relative;margin-left: auto;margin-right: auto;width: 250px;float: left;margin-left: 20px;">
+                                            <div class="testimonials-v3 icon" style="padding: 10px;background: #FEEECD;width: 250px;">
+                                                <div style="border: 1px solid #898989;">
+                                                    <div class="margin-b-30" style="margin-top: -30px;">
+                                                        <h6 class="testimonials-v3-subtitle"></h6>
+                                                        <img class="testimonials-v3-user-img radius-circle" src="/images/images/retail_units_icon.png" alt="">
+                                                        <h3 class="testimonials-v3-title">RETAIL UNITS</h3>
+                                                        <p class="testimonials-v3-quote" style="color: #000;">Buy Retail Units</p>
+                                                    </div>
+
+                                                    <a href="/listing?index=retail-units" target="_blank">   <h2 class="boxshadow btn-gold-bg-slide btn-slide btn-slide-corner btn-base-lg retailunits_browse" style="font-size: 14px;margin-top: 4px;">BROWSE</h2></a>
+                                                    <div style="width: 100%;height: 15px;"></div>
+                                                </div>
+                                            </div>
+                                            <div class="retailunits_property">
+
+                                                <div class="" style="width: 100%;float: left;padding: 15px;">
+
+                                                    <div class="animated fadeInUp" style="width: 100%;float: left;color: #fff;text-align: center;margin-top: 30%;font-weight: bold;">
+                                                        Buy Retail Units in more than 1000+ property listing
+                                                    </div>
+
+                                                </div>
+
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+
+
+
+
+
+
+                            </div>
+
+                        </div>
+                    </div>
+
+
+
+
+                </div>
+
+
+
+
+
+
+
+
+
+
+
+                <!--
+                                <div class="aggregation_bubbles" style="display: none;">
+
+
+                                    <div id="aggregation_back_btn" style="width: auto;height: auto;position: fixed;top: 100px;right: 50px;cursor: pointer;">
+                                        <img src="/images/images/back_btn.png" width="30" > GO BACK
+                                    </div>
+
+
+
+                                    <div class="container">
+                                        <div class="row">
+
+                                            <div class="col-md-12">
+
+
+
+                                                <div class="square-flipa col-md-6" style="padding-bottom: 450px !important;">
+                                                    <div style="width: 100%;float: left;">
+                                                        <div style="position: relative;margin-left: auto;margin-right: auto;width: 250px;float: right;margin-right: 20px;">
+                                                            <div class="testimonials-v3 icon" style="padding: 10px;background: #FEEECD;width: 250px;">
+                                                                <div style="border: 1px solid #898989;">
+                                                                    <div class="margin-b-30" style="margin-top: -30px;">
+                                                                        <h6 class="testimonials-v3-subtitle"></h6>
+                                                                        <img class="testimonials-v3-user-img radius-circle" src="/images/images/aggregation_icon.png" alt="">
+                                                                        <h3 class="testimonials-v3-title">BUY</h3>
+                                                                        <p class="testimonials-v3-quote" style="color: #000;font-size: 13px;">Buy property from an Aggregator</p>
+                                                                    </div>
+
+                                                                    <a href="/listing?index=aggregation&type=sell" target="_blank">  <h2 class="boxshadow btn-gold-bg-slide btn-slide btn-slide-corner btn-base-lg aggregation_browse" style="font-size: 14px;margin-top: 4px;">BROWSE</h2></a>
+                                                                    <div style="width: 100%;height: 15px;"></div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="aggregation_property">
+
+                                                                <div class="" style="width: 100%;float: left;padding: 15px;">
+
+                                                                    <div class="animated fadeInUp" style="width: 100%;float: left;color: #fff;text-align: center;margin-top: 30%;font-weight: bold;">
+                                                                        Buy property from an Aggregator
+                                                                    </div>
+
+                                                                </div>
+
+                                                            </div>
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+
+
+
+                                                <div class="square-flipa col-md-6" style="padding-bottom: 450px !important;">
+                                                    <div style="width: 100%;float: left;">
+                                                        <div style="position: relative;margin-left: auto;margin-right: auto;width: 250px;float: left;margin-left: 20px;">
+                                                            <div class="testimonials-v3 icon" style="padding: 10px;background: #FEEECD;width: 250px;">
+                                                                <div style="border: 1px solid #898989;">
+                                                                    <div class="margin-b-30" style="margin-top: -30px;">
+                                                                        <h6 class="testimonials-v3-subtitle"></h6>
+                                                                        <img class="testimonials-v3-user-img radius-circle" src="/images/images/retail_units_icon.png" alt="">
+                                                                        <h3 class="testimonials-v3-title">RENT</h3>
+                                                                        <p class="testimonials-v3-quote" style="color: #000;">Aggregator properties for rent</p>
+                                                                    </div>
+
+                                                                    <a href="/listing?index=aggregation&type=rent" target="_blank">  <h2 class="boxshadow btn-gold-bg-slide btn-slide btn-slide-corner btn-base-lg retailunits_browse" style="font-size: 14px;margin-top: 4px;">BROWSE</h2></a>
+                                                                    <div style="width: 100%;height: 15px;"></div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="retailunits_property">
+
+                                                                <div class="" style="width: 100%;float: left;padding: 15px;">
+
+                                                                    <div class="animated fadeInUp" style="width: 100%;float: left;color: #fff;text-align: center;margin-top: 30%;font-weight: bold;">
+                                                                        Aggregator properties for rent
+                                                                    </div>
+
+                                                                </div>
+
+                                                            </div>
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+
+
+
+
+
+                                            </div>
+
+                                        </div>
+                                    </div>
+
+
+
+
+                                </div> -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+                <!-- Main Lease & Rent Navigation Starts -->
+
+
+                <div class="leasenrent_bubbles" style="display: none;">
+
+                    <!-- back button starts -->
+                    <div id="leasenrent_back_btn" style="width: auto;height: auto;position: fixed;top: 130px;right: 50px;cursor: pointer;">
+                        <img src="/images/images/back_btn.png" width="30"> GO BACK
+                    </div>
+                    <!-- back button ends -->
+
+                    <div class="container">
+                        <div class="row">
+
+                            <div class="col-md-12">
+
+
+
+                                <div class="square-flipa col-md-6" style="padding-bottom: 450px !important;">
+                                    <div style="width: 100%;float: left;">
+                                        <div style="position: relative;margin-left: auto;margin-right: auto;width: 250px;float: right;margin-right: 20px;">
+                                            <div class="testimonials-v3 icon" style="padding: 10px;background: #FEEECD;width: 250px;">
+                                                <div style="border: 1px solid #898989;">
+                                                    <div class="margin-b-30" style="margin-top: -30px;">
+                                                        <h6 class="testimonials-v3-subtitle"></h6>
+                                                        <img class="testimonials-v3-user-img radius-circle" src="/images/images/rent_icon.png" alt="">
+                                                        <h3 class="testimonials-v3-title">FOR RENT</h3>
+                                                        <p class="testimonials-v3-quote" style="color: #000;font-size: 13px;">Buy Property for rent</p>
+                                                    </div>
+
+                                                    <a href="/listing?index=rent" target="_blank">  <h2 class="btn-gold-bg-slide btn-slide btn-slide-corner btn-base-sm  rent_browse" style="font-size: 14px;margin-top: 4px;">BROWSE</h2></a>
+                                                    <div style="width: 100%;height: 15px;"></div>
+                                                </div>
+                                            </div>
+                                            <div class="rent_property">
+
+                                                <div class="" style="width: 100%;float: left;padding: 15px;">
+
+                                                    <div class="animated fadeInUp" style="width: 100%;float: left;color: #fff;text-align: center;margin-top: 30%;font-weight: bold;">
+                                                        Buy Property for rent
+                                                    </div>
+
+                                                </div>
+
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+
+
+
+
+
+
+                                <div class="square-flipa col-md-6" style="padding-bottom: 450px !important;">
+                                    <div style="width: 100%;float: left;">
+                                        <div style="position: relative;margin-left: auto;margin-right: auto;width: 250px;float: left;margin-left: 20px;">
+                                            <div class="testimonials-v3 icon" style="padding: 10px;background: #FEEECD;width: 250px;">
+                                                <div style="border: 1px solid #898989;">
+                                                    <div class="margin-b-30" style="margin-top: -30px;">
+                                                        <h6 class="testimonials-v3-subtitle"></h6>
+                                                        <img class="testimonials-v3-user-img radius-circle" src="/images/images/let_icon.png" alt="">
+                                                        <h3 class="testimonials-v3-title">TO LET</h3>
+                                                        <p class="testimonials-v3-quote" style="color: #000;font-size: 13px;">Let your property</p>
+                                                    </div>
+
+                                                    <a href="/submit-property?index=let" target="_blank"> <h2 class="btn-gold-bg-slide btn-slide btn-slide-corner btn-base-sm  let_browse" style="font-size: 14px;margin-top: 4px;">BROWSE</h2></a>
+                                                    <div style="width: 100%;height: 15px;"></div>
+                                                </div>
+                                            </div>
+                                            <div class="let_property">
+
+                                                <div class="" style="width: 100%;float: left;padding: 15px;">
+
+                                                    <div class="animated fadeInUp" style="width: 100%;float: left;color: #fff;text-align: center;margin-top: 30%;font-weight: bold;">
+                                                        Let your property
+                                                    </div>
+
+                                                </div>
+
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+
+
+
+
+
+
+
+
+
+
+                            </div>
+
+                        </div>
+                    </div>
+
+
+
+
+                </div>
+
+
+
+
+                <!-- Main Lease & Rent Navigation Ends -->
+
+
+
+
+                <!-- Main Classified / Services Navigation Starts -->
+
+
+
+                <div class="classifiedservices_bubbles" style="display: none;">
+
+                    <!-- back button starts -->
+                    <div id="classifiedservices_back_btn" style="width: auto;height: auto;position: fixed;top: 130px;right: 50px;cursor: pointer;">
+                        <img src="/images/images/back_btn.png" width="30"> GO BACK
+                    </div>
+                    <!-- back button ends -->
+
+                    <div class="container">
+                        <div class="row">
+
+                            <div class="col-md-12">
+
+
+
+                                <div class="square-flipa col-md-6" style="padding-bottom: 450px !important;">
+                                    <div style="width: 100%;float: left;">
+                                        <div style="position: relative;margin-left: auto;margin-right: auto;width: 250px;float: right;margin-rightt: 40px;">
+                                            <div class="testimonials-v3 icon" style="padding: 10px;background: #FEEECD;width: 250px;">
+                                                <div style="border: 1px solid #898989;">
+                                                    <div class="margin-b-30" style="margin-top: -30px;">
+                                                        <h6 class="testimonials-v3-subtitle"></h6>
+                                                        <img class="testimonials-v3-user-img radius-circle" src="/images/images/browse_service_icon.png" alt="">
+                                                        <h3 class="testimonials-v3-title" style="font-size: 23px;">BROWSE SERVICES</h3>
+                                                        <p class="testimonials-v3-quote" style="color: #000;font-size: 13px;">Browse Real Estate Services.</p>
+                                                    </div>
+
+                                                    <h2 class="btn-gold-bg-slide btn-slide btn-slide-corner btn-base-sm  services_browse_btn" style="font-size: 14px;margin-top: 4px;">BROWSE</h2>
+                                                    <div style="width: 100%;height: 15px;"></div>
+                                                </div>
+                                            </div>
+                                            <div class="services_browse">
+
+                                                <div class="" style="width: 100%;float: left;padding: 15px;">
+
+                                                    <div class="animated fadeInUp" style="width: 100%;float: left;color: #fff;text-align: center;margin-top: 30%;font-weight: bold;">
+                                                        Browse Real Estate Services.
+                                                    </div>
+
+                                                </div>
+
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+
+
+
+                                <div class="square-flipa col-md-6" style="padding-bottom: 450px !important;">
+                                    <div style="width: 100%;float: left;">
+                                        <div style="position: relative;margin-left: auto;margin-right: auto;width: 250px;float: left;margin-left: 40px;">
+                                            <div class="testimonials-v3 icon" style="padding: 10px;background: #FEEECD;width: 250px;">
+                                                <div style="border: 1px solid #898989;">
+                                                    <div class="margin-b-30" style="margin-top: -30px;">
+                                                        <h6 class="testimonials-v3-subtitle"></h6>
+                                                        <img class="testimonials-v3-user-img radius-circle" src="/images/images/provide_service_icon.png" alt="">
+                                                        <h3 class="testimonials-v3-title" style="font-size: 23px;">PROVIDE SERVICES</h3>
+                                                        <p class="testimonials-v3-quote" style="color: #000;font-size: 13px;">Provide Real Estate Services.</p>
+                                                    </div>
+
+                                                    <a href="/provide-service" target="_blank">   <h2 class="btn-gold-bg-slide btn-slide btn-slide-corner btn-base-sm  services_provide_btn" style="font-size: 14px;margin-top: 4px;">BROWSE</h2></a>
+                                                    <div style="width: 100%;height: 15px;"></div>
+                                                </div>
+                                            </div>
+                                            <div class="services_provide">
+
+                                                <div class="" style="width: 100%;float: left;padding: 15px;">
+
+                                                    <div class="animated fadeInUp" style="width: 100%;float: left;color: #fff;text-align: center;margin-top: 30%;font-weight: bold;">
+                                                        Provide Real Estate Services.
+                                                    </div>
+
+                                                </div>
+
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+
+
+
+
+
+
+
+                            </div>
+
+                        </div>
+                    </div>
+
+
+
+
+                </div>
+
+
+
+
+
+
+                <div id="" class="serviceseeker_bubbles scrollTo animated fadeInUp" style="display: none;margin-top: -200px;">
+
+                    <!-- back button starts -->
+                    <div id="serviceseeker_back_btn" style="width: auto;height: auto;position: fixed;top: 130px;right: 50px;cursor: pointer;z-index: 100000">
+                        <img src="/images/images/back_btn.png" width="30"> GO BACK
+                    </div>
+
+                    <!-- back button ends -->
+
+
+
+                    <div class="col-md-12 text-center animated fadeInUp" style="margin-top: 20px;">
+                        <h1 class="section-header" style="font-size: 36px;">OUR SERVICES <span class="underline animated" data-animation="fullWidth"></span></h1><br>
+                    </div>
+
+
+
+
+                    <div style="width: 100%;float: left;">
+
+
+
+                        <!-- News v1 -->
+                        <div class="bg-color-sky-light animated fadeInUp">
+                            <div class="content-md container" style="padding-top: 0;">
+                                <!-- Heading v1 -->
+                                <div class="heading-v1 text-center margin-b-80 animated fadeInUp">
+
+                                    <p class="heading-v1-text" style="color: #474747"></p>
+                                </div>
+                                <!-- End Heading v1 -->
+
+                                <!-- Masonry Grid -->
+                                <div class="masonry-grid margin-b-40" style="position: relative; height: 90px;">
+
+
+                                    <div class="masonry-grid-item col-3" style="position: absolute; top: 0px;">
+                                        <!-- News v1 -->
+                                        <article class="news-v1">
+                                            <div class="news-v1-heading">
+
+                                                <h3 class="news-v1-heading-title"><a href="#">Arranging property loans, insurance &amp; other allied services</a></h3>
+                                                <span class="news-v1-element"><i class="news-v1-element-icon fa fa-circle"></i></span>
+                                            </div>
+                                            <a class="image-popup-vertical-fit" href="/images/images/ploan.jpg" title="Image">
+                                                <img class="img-responsive" src="/images/images/ploan.jpg" alt="">
+                                            </a>
+                                            <div class="news-v1-content">
+                                                <p class="news-v1-quote">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                                            </div>
+                                        </article>
+                                        <!-- End News v1 -->
+                                    </div>
+
+
+
+
+
+
+
+
+
+
+                                    <div class="masonry-grid-item col-3" style="position: absolute; top: 30px;">
+                                        <!-- News v1 -->
+                                        <article class="news-v1">
+                                            <div class="news-v1-heading">
+
+                                                <h3 class="news-v1-heading-title"><a href="#">Valuation &amp; Advisory<br> Services</a></h3>
+                                                <span class="news-v1-element"><i class="news-v1-element-icon fa fa-circle"></i></span>
+                                            </div>
+                                            <!-- ".carousel-fade" class is added with animation stylesheet to spice up Bootstrap Carousel with CSS3 Animation -->
+                                            <div id="blog-grid-2-col" class="carousel slide carousel-fade" data-ride="carousel">
+                                                <!-- Wrapper for slides -->
+                                                <div class="carousel-inner" role="listbox">
+                                                    <div class="item active">
+                                                        <a class="image-popup-vertical-fit" href="/images/images/pv.jpg" title="Slider Image">
+                                                            <img class="img-responsive" src="/images/images/pv.jpg" alt="">
+                                                        </a>
+                                                    </div>
+                                                    <div class="item">
+                                                        <a class="image-popup-vertical-fit" href="/images/images/pv2.jpg" title="Slider Image">
+                                                            <img class="img-responsive" src="/images/images/pv2.jpg" alt="">
+                                                        </a>
+                                                    </div>
+                                                </div>
+
+
+                                                <div class="news-v1-content">
+                                                    <p class="news-v1-quote">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                                                </div>
+
+                                                <!-- Controls -->
+                                                <a class="left carousel-control theme-carousel-control-v1" href="#blog-grid-2-col" role="button" data-slide="prev">
+                                                    <span class="carousel-control-arrows-v1 radius-3 fa fa-angle-left" aria-hidden="true"></span>
+                                                    <span class="sr-only">Previous</span>
+                                                </a>
+                                                <a class="right carousel-control theme-carousel-control-v1" href="#blog-grid-2-col" role="button" data-slide="next">
+                                                    <span class="carousel-control-arrows-v1 radius-3 fa fa-angle-right" aria-hidden="true"></span>
+                                                    <span class="sr-only">Next</span>
+                                                </a>
+                                            </div>
+                                            <!--
+                                           <div class="news-v1-content">
+                                               <ul class="list-inline news-v1-lists">
+                                                   <li class="news-v1-lists-item">23 Octover 2016</li>
+                                                   <li class="news-v1-lists-item"><a class="news-v1-lists-link" href="#">David Martin</a></li>
+                                                   <li class="news-v1-lists-item"><a class="news-v1-lists-link" href="#">7 Comments</a></li>
+                                               </ul>
+                                           </div>
+                                           -->
+                                        </article>
+                                        <!-- End News v1 -->
+                                    </div>
+                                    <div class="masonry-grid-item col-3" style="position: absolute; top: 60px;">
+                                        <!-- News v1 -->
+                                        <article class="news-v1">
+                                            <div class="news-v1-heading">
+
+                                                <h3 class="news-v1-heading-title"><a href="#">Law Firm Focusing On Real Estate &amp; Construction Sector</a></h3>
+                                                <span class="news-v1-element"><i class="news-v1-element-icon fa fa-circle"></i></span>
+                                            </div>
+                                            <a class="image-popup-vertical-fit" href="/images/images/law2.jpg" title="Image">
+                                                <img class="img-responsive" src="/images/images/law2.jpg" alt="">
+                                            </a>
+                                            <div class="news-v1-content">
+                                                <p class="news-v1-quote">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                                            </div>
+                                        </article>
+                                        <!-- End News v1 -->
+                                    </div>
+
+
+
+
+
+
+
+
+
+                                </div>
+                                <!-- End Masonry Grid -->
+
+
+                            </div>
+                        </div>
+                        <!-- End News v1 -->
+
+
+
+
+                    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+                </div>
+
+
+                <!-- Main Classified / Services Navigation Ends -->
+
+
+
+
+
+
+
+
+
+            </div>
+        </div>
+       
+
+
+<!-- Modal Popups -->
+
+<!-- Modal content-->
+
+<!-- Rent Modal Popup -->
+
+<div id="rentModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 style="color:#ff0000  !important">Lease & Rent </h4>
+      </div>
+      <div class="modal-body">
+        <center><h3><p> Coming Soon</p></h3>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+</div>
+</div>
+
+
+<!-- Classifieds Modal Popup -->
+
+<div id="rentClassifieds" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 style="color:#ff0000 !important">Classifieds</h4>
+      </div>
+      <div class="modal-body">
+        <center><h3><p> Coming Soon</p></h3>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+</div>
+</div>
+
+
+<%- include layouts/footer.ejs %>

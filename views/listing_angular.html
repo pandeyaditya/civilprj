@@ -1,0 +1,43 @@
+<%- include layouts/header.ejs %>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+        <div class="container" ng-app="myApp" ng-controller="namesCtrl">
+            <p><input type="text" ng-model="test"></p>
+         <div class="row">
+            <div class="col-md-12">
+
+                <ul>
+                  <li ng-repeat="x in nameArray | orderBy: 'values.id' ">
+                    <div class="box">
+                        <img src="/../images/image1.jpg">
+                        <p> {{ x.values.name }} </p>
+                        <p>Price : {{ x.values.price }}</p>
+                        <p>{{x.values.location}}</p>
+                        <p><a href="#">{{x.values.details}}</a></p>
+
+                    </div>
+                  </li>
+                </ul>
+
+                
+            </div>
+        
+        </div>
+        </div>
+        <script>
+angular.module('myApp', []).controller('namesCtrl', function($scope) {
+    $scope.names = [
+        "one" : {"id":"1","name":"Palava City","price":"Rs. 5000000","location":"Thane","details":"#"},
+        "two" : {"id":"2","name":"Green City","price":"Rs. 6000000","location":"Mulund","details":"#"},
+        "three" : {"id":"3","name":"Tech City","price":"Rs. 15000000","location":"Goregaon","details":"#"}
+                
+    ];
+
+    $scope.nameArray = Object.keys($scope.names)
+        .map(function (value, index) {
+            return { values: $scope.names[value] }
+        }
+    );
+    console.log($scope.names);
+});
+</script>
+<%- include layouts/footer.ejs %>

@@ -1,0 +1,1920 @@
+<%- include layouts/header.ejs %>
+            <nav class="navbar navbar-default" >
+            <div class="container-fluid">
+            <ul class="nav navbar-nav" style="font-size:12px; !important">
+              <li><a href="/">Home</a></li>
+              <li><a href="/properties">My Properties</a></li>
+              <li><a href="/listing">Search Properties</a></li>
+
+              <li><a href="/properties/add">Add Property</a></li>
+              <li><a href="#">Profile</a></li>
+            </ul>
+
+            <ul class="nav navbar-nav pull-right">
+              <li><a href="#">Welcome</a></li>
+              <li><a href="/logout">Logout</a></li>
+            </ul>
+            </div>
+            </nav>
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+        <div class="container">
+         <div class="row">
+
+            
+            <div class="col-md-10">
+<!--                 <div class="buttons pull-right">
+                  <button class="grid">Grid View</button>
+                  <button class="list">List View</button>
+                </div> -->
+                <form class="form-group" method="post" action="/search">
+                  <input class="form-control" type="text" name="property_search" id="property_search" placeholder="Search Properties" onkeyup="myFunction()">
+                  <br/>
+                </form>
+
+                <ul id="myUL">
+                <% if(data.length){                                 
+                 for(var i = 0;i < data.length;i++) { %>    
+                <li style="list-style-type: none;">
+                <div class="grid">
+
+
+                    <img src="/../images/image1.jpg">
+                    <div class="details">
+                    <div>
+                      <h3><%=data[i].property_title%></h3>
+                    </div>
+                    <br/>
+                    <div style="border-bottom: 1px solid #ececec">
+                      <b>Price :</b><span style="float:right"> Rs. <%=data[i].price%></span>
+                    </div>
+                    <div  style="border-bottom: 1px solid #ececec">
+                      <b>Location: </b><span style="float:right"><%=data[i].location%></span>
+                    </div>
+                    <div  style="border-bottom: 1px solid #ececec">
+                      <b>Type :</b><span style="float:right"><%=data[i].category%></span>
+                    </div>
+                    <div>
+                      <center>
+                      <a href="../detail/<%=data[i].id%>" class="btn btn-small btn-success">More Details</a>
+                    </center>
+                    </div>
+                  </div>
+                </div>
+              </li>
+                <% } %>
+                <% } %>
+              </ul>
+
+
+
+
+            </div>
+                          <div class="col-md-2">
+                <b> Search Filters : </b>
+                <br/><br/>
+                <!-- <form action="#" method="post">
+                    <div class="form-group">
+                      <label>Country</label>
+                      <select name="country" class="form-control">
+                        <option value="india">India</option>
+                      </select>                  
+                    </div>
+                    <div class="form-group">
+                      <label>State</label>
+                      <select name="state" class="form-control">
+                        <option value="maharashtra">Maharashtra</option>
+                        <option value="gujarat">Gujarat</option>
+                        <option value="karnataka">Karnataka</option>
+                        <option value="kerala">Kerala</option>
+                        <option value="rajasthan">Rajasthan</option>
+                        <option value="punjab">Punjab</option>
+                      </select>    
+                    </div>
+                    <div class="form-group">              
+                      <label>City</label>
+                      <input type="text" name="city" class="form-control">
+                    </div>             
+                    <div class="form-group" >
+                      <input type="submit" class="form-control" name="search-filter" value="Filter">
+                    </div>
+                </form> -->
+                <div class="sidebar sidebar-widget">
+                            <h3 class="title">Find your Property</h3>
+                            <form id="ajaxtestform">
+                                <div class="form-group">
+                                    Your Country :  <label id="current_country">India</label>
+                                </div>
+                                <div class="form-group">
+                                    Your State :  <label id="current_state">Mumbai</label>
+                                </div>
+
+
+                                <input type="text" class="current_country" hidden="">
+                                <input type="text" class="current_city" hidden="">
+                                <input type="text" class="selected_address" hidden="">
+
+                                <input type="text" id="current_country_code" style="display: none;">
+                                <input type="text" id="ne_lat" style="display: none;">
+                                <input type="text" id="ne_lng" style="display: none;">
+                                <input type="text" id="sw_lat" style="display: none;">
+                                <input type="text" id="sw_lng" style="display: none;">
+
+                                <div class="form-group">
+                                    <div class="country_list_dropdown" style="display: none;">
+
+    <option value="All Countries">All Countries</option>
+
+    
+
+
+    <option value="bd">Bangladesh</option>
+
+
+    
+
+
+    <option value="be">Belgium</option>
+
+
+    
+
+
+    <option value="bf">Burkina Faso</option>
+
+
+    
+
+
+    <option value="bg">Bulgaria</option>
+
+
+    
+
+
+    <option value="ba">Bosnia and Herzegovina</option>
+
+
+    
+
+
+    <option value="bb">Barbados</option>
+
+
+    
+
+
+    <option value="wf">Wallis and Futuna</option>
+
+
+    
+
+
+    <option value="bl">Saint Barthelemy</option>
+
+
+    
+
+
+    <option value="bm">Bermuda</option>
+
+
+    
+
+
+    <option value="bn">Brunei</option>
+
+
+    
+
+
+    <option value="bo">Bolivia</option>
+
+
+    
+
+
+    <option value="bh">Bahrain</option>
+
+
+    
+
+
+    <option value="bi">Burundi</option>
+
+
+    
+
+
+    <option value="bj">Benin</option>
+
+
+    
+
+
+    <option value="bt">Bhutan</option>
+
+
+    
+
+
+    <option value="jm">Jamaica</option>
+
+
+    
+
+
+    <option value="bv">Bouvet Island</option>
+
+
+    
+
+
+    <option value="bw">Botswana</option>
+
+
+    
+
+
+    <option value="ws">Samoa</option>
+
+
+    
+
+
+    <option value="br">Brazil</option>
+
+
+    
+
+
+    <option value="bs">Bahamas</option>
+
+
+    
+
+
+    <option value="je">Jersey</option>
+
+
+    
+
+
+    <option value="by">Belarus</option>
+
+
+    
+
+
+    <option value="bz">Belize</option>
+
+
+    
+
+
+    <option value="ru">Russia</option>
+
+
+    
+
+
+    <option value="rw">Rwanda</option>
+
+
+    
+
+
+    <option value="rs">Serbia</option>
+
+
+    
+
+
+    <option value="tl">Timor-Leste</option>
+
+
+    
+
+
+    <option value="tm">Turkmenistan</option>
+
+
+    
+
+
+    <option value="tj">Tajikistan</option>
+
+
+    
+
+
+    <option value="ro">Romania</option>
+
+
+    
+
+
+    <option value="tk">Tokelau</option>
+
+
+    
+
+
+    <option value="gw">Guinea-Bissau</option>
+
+
+    
+
+
+    <option value="gu">Guam</option>
+
+
+    
+
+
+    <option value="gt">Guatemala</option>
+
+
+    
+
+
+    <option value="gr">Greece</option>
+
+
+    
+
+
+    <option value="gq">Equatorial Guinea</option>
+
+
+    
+
+
+    <option value="jp">Japan</option>
+
+
+    
+
+
+    <option value="gy">Guyana</option>
+
+
+    
+
+
+    <option value="gg">Guernsey</option>
+
+
+    
+
+
+    <option value="ge">Georgia</option>
+
+
+    
+
+
+    <option value="gd">Grenada</option>
+
+
+    
+
+
+    <option value="uk">United Kingdom</option>
+
+
+    
+
+
+    <option value="ga">Gabon</option>
+
+
+    
+
+
+    <option value="sv">El Salvador</option>
+
+
+    
+
+
+    <option value="gn">Guinea</option>
+
+
+    
+
+
+    <option value="gm">Gambia</option>
+
+
+    
+
+
+    <option value="gl">Greenland</option>
+
+
+    
+
+
+    <option value="gi">Gibraltar</option>
+
+
+    
+
+
+    <option value="gh">Ghana</option>
+
+
+    
+
+
+    <option value="om">Oman</option>
+
+
+    
+
+
+    <option value="tn">Tunisia</option>
+
+
+    
+
+
+    <option value="jo">Jordan</option>
+
+
+    
+
+
+    <option value="hr">Croatia</option>
+
+
+    
+
+
+    <option value="ht">Haiti</option>
+
+
+    
+
+
+    <option value="hu">Hungary</option>
+
+
+    
+
+
+    <option value="hk">Hong Kong</option>
+
+
+    
+
+
+    <option value="hn">Honduras</option>
+
+
+    
+
+
+    <option value="hm">Heard Island and McDonald Islands</option>
+
+
+    
+
+
+    <option value="ve">Venezuela</option>
+
+
+    
+
+
+    <option value="pr">Puerto Rico</option>
+
+
+    
+
+
+    <option value="ps">Palestinian Territory</option>
+
+
+    
+
+
+    <option value="pw">Palau</option>
+
+
+    
+
+
+    <option value="pt">Portugal</option>
+
+
+    
+
+
+    <option value="sj">Svalbard</option>
+
+
+    
+
+
+    <option value="py">Paraguay</option>
+
+
+    
+
+
+    <option value="iq">Iraq</option>
+
+
+    
+
+
+    <option value="pa">Panama</option>
+
+
+    
+
+
+    <option value="pf">French Polynesia</option>
+
+
+    
+
+
+    <option value="pg">Papua New Guinea</option>
+
+
+    
+
+
+    <option value="pe">Peru</option>
+
+
+    
+
+
+    <option value="pk">Pakistan</option>
+
+
+    
+
+
+    <option value="ph">Philippines</option>
+
+
+    
+
+
+    <option value="pn">Pitcairn</option>
+
+
+    
+
+
+    <option value="pl">Poland</option>
+
+
+    
+
+
+    <option value="pm">Saint Pierre and Miquelon</option>
+
+
+    
+
+
+    <option value="zm">Zambia</option>
+
+
+    
+
+
+    <option value="eh">Western Sahara</option>
+
+
+    
+
+
+    <option value="ee">Estonia</option>
+
+
+    
+
+
+    <option value="eg">Egypt</option>
+
+
+    
+
+
+    <option value="za">South Africa</option>
+
+
+    
+
+
+    <option value="ec">Ecuador</option>
+
+
+    
+
+
+    <option value="it">Italy</option>
+
+
+    
+
+
+    <option value="vn">Vietnam</option>
+
+
+    
+
+
+    <option value="sb">Solomon Islands</option>
+
+
+    
+
+
+    <option value="eu">European Union</option>
+
+
+    
+
+
+    <option value="et">Ethiopia</option>
+
+
+    
+
+
+    <option value="so">Somalia</option>
+
+
+    
+
+
+    <option value="zw">Zimbabwe</option>
+
+
+    
+
+
+    <option value="sa">Saudi Arabia</option>
+
+
+    
+
+
+    <option value="es">Spain</option>
+
+
+    
+
+
+    <option value="er">Eritrea</option>
+
+
+    
+
+
+    <option value="me">Montenegro</option>
+
+
+    
+
+
+    <option value="md">Moldova</option>
+
+
+    
+
+
+    <option value="mg">Madagascar</option>
+
+
+    
+
+
+    <option value="mf">Saint Martin</option>
+
+
+    
+
+
+    <option value="ma">Morocco</option>
+
+
+    
+
+
+    <option value="mc">Monaco</option>
+
+
+    
+
+
+    <option value="uz">Uzbekistan</option>
+
+
+    
+
+
+    <option value="mm">Myanmar</option>
+
+
+    
+
+
+    <option value="ml">Mali</option>
+
+
+    
+
+
+    <option value="mo">Macao</option>
+
+
+    
+
+
+    <option value="mn">Mongolia</option>
+
+
+    
+
+
+    <option value="mh">Marshall Islands</option>
+
+
+    
+
+
+    <option value="mk">Macedonia</option>
+
+
+    
+
+
+    <option value="mu">Mauritius</option>
+
+
+    
+
+
+    <option value="mt">Malta</option>
+
+
+    
+
+
+    <option value="mw">Malawi</option>
+
+
+    
+
+
+    <option value="mv">Maldives</option>
+
+
+    
+
+
+    <option value="mp">Northern Mariana Islands</option>
+
+
+    
+
+
+    <option value="ms">Montserrat</option>
+
+
+    
+
+
+    <option value="mr">Mauritania</option>
+
+
+    
+
+
+    <option value="im">Isle of Man</option>
+
+
+    
+
+
+    <option value="ug">Uganda</option>
+
+
+    
+
+
+    <option value="my">Malaysia</option>
+
+
+    
+
+
+    <option value="mx">Mexico</option>
+
+
+    
+
+
+    <option value="il">Israel</option>
+
+
+    
+
+
+    <option value="fr">France</option>
+
+
+    
+
+
+    <option value="io">British Indian Ocean Territory</option>
+
+
+    
+
+
+    <option value="sh">Saint Helena Ascension and Tristan da Cunha</option>
+
+
+    
+
+
+    <option value="fi">Finland</option>
+
+
+    
+
+
+    <option value="fj">Fiji</option>
+
+
+    
+
+
+    <option value="fk">Falkland Islands</option>
+
+
+    
+
+
+    <option value="fm">Micronesia</option>
+
+
+    
+
+
+    <option value="fo">Faroe Islands</option>
+
+
+    
+
+
+    <option value="ni">Nicaragua</option>
+
+
+    
+
+
+    <option value="nl">Netherlands</option>
+
+
+    
+
+
+    <option value="no">Norway</option>
+
+
+    
+
+
+    <option value="na">Namibia</option>
+
+
+    
+
+
+    <option value="vu">Vanuatu</option>
+
+
+    
+
+
+    <option value="nc">New Caledonia</option>
+
+
+    
+
+
+    <option value="ne">Niger</option>
+
+
+    
+
+
+    <option value="nf">Norfolk Island</option>
+
+
+    
+
+
+    <option value="ng">Nigeria</option>
+
+
+    
+
+
+    <option value="nz">New Zealand</option>
+
+
+    
+
+
+    <option value="np">Nepal</option>
+
+
+    
+
+
+    <option value="nr">Nauru</option>
+
+
+    
+
+
+    <option value="nu">Niue</option>
+
+
+    
+
+
+    <option value="ck">Cook Islands</option>
+
+
+    
+
+
+    <option value="ci">Ivory Coast</option>
+
+
+    
+
+
+    <option value="ch">Switzerland</option>
+
+
+    
+
+
+    <option value="co">Colombia</option>
+
+
+    
+
+
+    <option value="cn">China</option>
+
+
+    
+
+
+    <option value="cm">Cameroon</option>
+
+
+    
+
+
+    <option value="cl">Chile</option>
+
+
+    
+
+
+    <option value="cc">Cocos Islands</option>
+
+
+    
+
+
+    <option value="ca">Canada</option>
+
+
+    
+
+
+    <option value="cg">Congo Republic</option>
+
+
+    
+
+
+    <option value="cf">Central African Republic</option>
+
+
+    
+
+
+    <option value="cd">Congo Democratic Republic</option>
+
+
+    
+
+
+    <option value="cz">Czech Republic</option>
+
+
+    
+
+
+    <option value="cy">Cyprus</option>
+
+
+    
+
+
+    <option value="cx">Christmas Island</option>
+
+
+    
+
+
+    <option value="cr">Costa Rica</option>
+
+
+    
+
+
+    <option value="cv">Cape Verde</option>
+
+
+    
+
+
+    <option value="cu">Cuba</option>
+
+
+    
+
+
+    <option value="sz">Swaziland</option>
+
+
+    
+
+
+    <option value="sy">Syria</option>
+
+
+    
+
+
+    <option value="kg">Kyrgyzstan</option>
+
+
+    
+
+
+    <option value="ke">Kenya</option>
+
+
+    
+
+
+    <option value="sr">Suriname</option>
+
+
+    
+
+
+    <option value="ki">Kiribati</option>
+
+
+    
+
+
+    <option value="kh">Cambodia</option>
+
+
+    
+
+
+    <option value="kn">Saint Kitts and Nevis</option>
+
+
+    
+
+
+    <option value="km">Comoros</option>
+
+
+    
+
+
+    <option value="st">Sao Tome and Principe</option>
+
+
+    
+
+
+    <option value="sk">Slovakia</option>
+
+
+    
+
+
+    <option value="kr">Korea South</option>
+
+
+    
+
+
+    <option value="si">Slovenia</option>
+
+
+    
+
+
+    <option value="kp">Korea North</option>
+
+
+    
+
+
+    <option value="kw">Kuwait</option>
+
+
+    
+
+
+    <option value="sn">Senegal</option>
+
+
+    
+
+
+    <option value="sm">San Marino</option>
+
+
+    
+
+
+    <option value="sl">Sierra Leone</option>
+
+
+    
+
+
+    <option value="sc">Seychelles</option>
+
+
+    
+
+
+    <option value="kz">Kazakhstan</option>
+
+
+    
+
+
+    <option value="ky">Cayman Islands</option>
+
+
+    
+
+
+    <option value="sg">Singapore</option>
+
+
+    
+
+
+    <option value="se">Sweden</option>
+
+
+    
+
+
+    <option value="sd">Sudan</option>
+
+
+    
+
+
+    <option value="do">Dominican Republic</option>
+
+
+    
+
+
+    <option value="dm">Dominica</option>
+
+
+    
+
+
+    <option value="dj">Djibouti</option>
+
+
+    
+
+
+    <option value="dk">Denmark</option>
+
+
+    
+
+
+    <option value="vg">British Virgin Islands</option>
+
+
+    
+
+
+    <option value="de">Germany</option>
+
+
+    
+
+
+    <option value="ye">Yemen</option>
+
+
+    
+
+
+    <option value="dz">Algeria</option>
+
+
+    
+
+
+    <option value="us">United States</option>
+
+
+    
+
+
+    <option value="uy">Uruguay</option>
+
+
+    
+
+
+    <option value="yt">Mayotte</option>
+
+
+    
+
+
+    <option value="lb">Lebanon</option>
+
+
+    
+
+
+    <option value="lc">Saint Lucia</option>
+
+
+    
+
+
+    <option value="la">Laos</option>
+
+
+    
+
+
+    <option value="tv">Tuvalu</option>
+
+
+    
+
+
+    <option value="tw">Taiwan</option>
+
+
+    
+
+
+    <option value="tt">Trinidad and Tobago</option>
+
+
+    
+
+
+    <option value="tr">Turkey</option>
+
+
+    
+
+
+    <option value="lk">Sri Lanka</option>
+
+
+    
+
+
+    <option value="li">Liechtenstein</option>
+
+
+    
+
+
+    <option value="lv">Latvia</option>
+
+
+    
+
+
+    <option value="to">Tonga</option>
+
+
+    
+
+
+    <option value="lt">Lithuania</option>
+
+
+    
+
+
+    <option value="lu">Luxembourg</option>
+
+
+    
+
+
+    <option value="lr">Liberia</option>
+
+
+    
+
+
+    <option value="ls">Lesotho</option>
+
+
+    
+
+
+    <option value="th">Thailand</option>
+
+
+    
+
+
+    <option value="tf">French Southern Territories</option>
+
+
+    
+
+
+    <option value="tg">Togo</option>
+
+
+    
+
+
+    <option value="td">Chad</option>
+
+
+    
+
+
+    <option value="tc">Turks and Caicos Islands</option>
+
+
+    
+
+
+    <option value="ly">Libya</option>
+
+
+    
+
+
+    <option value="va">Holy See</option>
+
+
+    
+
+
+    <option value="vc">Saint Vincent and the Grenadines</option>
+
+
+    
+
+
+    <option value="ae">United Arab Emirates</option>
+
+
+    
+
+
+    <option value="ad">Andorra</option>
+
+
+    
+
+
+    <option value="ag">Antigua and Barbuda</option>
+
+
+    
+
+
+    <option value="af">Afghanistan</option>
+
+
+    
+
+
+    <option value="ai">Anguilla</option>
+
+
+    
+
+
+    <option value="vi">Virgin Islands</option>
+
+
+    
+
+
+    <option value="is">Iceland</option>
+
+
+    
+
+
+    <option value="ir">Iran</option>
+
+
+    
+
+
+    <option value="am">Armenia</option>
+
+
+    
+
+
+    <option value="al">Albania</option>
+
+
+    
+
+
+    <option value="ao">Angola</option>
+
+
+    
+
+
+    <option value="an">Netherlands Antilles</option>
+
+
+    
+
+
+    <option value="aq">Antarctica</option>
+
+
+    
+
+
+    <option value="asia">Asia &amp; Pacific</option>
+
+
+    
+
+
+    <option value="as">American Samoa</option>
+
+
+    
+
+
+    <option value="ar">Argentina</option>
+
+
+    
+
+
+    <option value="au">Australia</option>
+
+
+    
+
+
+    <option value="at">Austria</option>
+
+
+    
+
+
+    <option value="aw">Aruba</option>
+
+
+    
+
+
+    <option value="in">India</option>
+
+
+    
+
+
+    <option value="tz">Tanzania</option>
+
+
+    
+
+
+    <option value="az">Azerbaijan</option>
+
+
+    
+
+
+    <option value="ie">Ireland</option>
+
+
+    
+
+
+    <option value="id">Indonesia</option>
+
+
+    
+
+
+    <option value="ua">Ukraine</option>
+
+
+    
+
+
+    <option value="qa">Qatar</option>
+
+
+    
+
+
+    <option value="mz">Mozambique</option>
+
+
+    
+
+</select></div>
+
+
+
+<script type="text/javascript">
+
+    $(document).ready(function () {
+
+        $('.selectpicker').selectpicker();
+        $("#country_list").selectpicker('refresh');
+
+    });
+
+
+</script>
+
+
+
+
+
+
+
+
+</div>
+                                </div>
+
+
+
+                                <div class="form-group" tooltip3="Select country to enable" id="citybox">
+                                    <input id="city" class="form-control search-fields" disabled="" placeholder="Enter city">
+
+                                </div>
+
+                                <div class="form-group" tooltip3="Select city to enable" id="addressbox">
+                                    <input id="address" class="form-control search-fields" disabled="" placeholder="Enter address e.g. street, block">
+
+                                </div>
+
+
+                                <div class="form-group">
+                                    <input id="keyword" class="form-control search-fields" placeholder="Keyword">
+                                </div>
+                                <input id="lati" class="form-control search-fields" value="" style="display: none;">
+                                <input id="long" class="form-control search-fields" value="" style="display: none;">
+                                <div class="form-group">
+                                    <div class="btn-group bootstrap-select search-fields"><button type="button" class="btn dropdown-toggle btn-default" data-toggle="dropdown" role="button" data-id="status" title="All Status"><span class="filter-option pull-left">All Status</span>&nbsp;<span class="bs-caret"><span class="caret"></span></span></button><div class="dropdown-menu open" role="combobox"><ul class="dropdown-menu inner" role="listbox" aria-expanded="false"><li data-original-index="0" class="selected"><a tabindex="0" class="" data-tokens="null" role="option" aria-disabled="false" aria-selected="true"><span class="text">All Status</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="1"><a tabindex="0" class="" data-tokens="null" role="option" aria-disabled="false" aria-selected="false"><span class="text">Furnitured</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="2"><a tabindex="0" class="" data-tokens="null" role="option" aria-disabled="false" aria-selected="false"><span class="text">Semi Furnitured</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="3"><a tabindex="0" class="" data-tokens="null" role="option" aria-disabled="false" aria-selected="false"><span class="text">Non Furnitured</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li></ul></div>
+
+                                    <select id="status" class="form-control selectpicker search-fields" tabindex="-98">
+                                        <option value="All Status">All Status</option>
+                                        <option value="Furnitured">Furnitured</option>
+                                        <option value="Semi Furnitured">Semi Furnitured</option>
+                                        <option value="Non Furnitured">Non Furnitured</option>
+                                    </select>
+                                  </div>
+                                </div>
+
+
+
+                                <div class="form-group">
+                                    <div class="btn-group bootstrap-select search-fields"><button type="button" class="btn dropdown-toggle btn-default" data-toggle="dropdown" role="button" data-id="type" title="All Type"><span class="filter-option pull-left">All Type</span>&nbsp;<span class="bs-caret"><span class="caret"></span></span></button><div class="dropdown-menu open" role="combobox"><div class="bs-searchbox"><input type="text" class="form-control" autocomplete="off" role="textbox" aria-label="Search"></div><ul class="dropdown-menu inner" role="listbox" aria-expanded="false"><li data-original-index="0" class="selected"><a tabindex="0" class="" data-tokens="null" role="option" aria-disabled="false" aria-selected="true"><span class="text">All Type</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li class="divider" data-optgroup="1div"></li><li class="dropdown-header " data-optgroup="1"><span class="text">Residential</span></li><li data-original-index="1" data-optgroup="1"><a tabindex="0" class="opt  " data-tokens="null" role="option" aria-disabled="false" aria-selected="false"><span class="text">Apartments/Flats</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="2" data-optgroup="1"><a tabindex="0" class="opt  " data-tokens="null" role="option" aria-disabled="false" aria-selected="false"><span class="text">Houses</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="3" data-optgroup="1"><a tabindex="0" class="opt  " data-tokens="null" role="option" aria-disabled="false" aria-selected="false"><span class="text">Co-Homes</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="4" data-optgroup="1"><a tabindex="0" class="opt  " data-tokens="null" role="option" aria-disabled="false" aria-selected="false"><span class="text">Villas</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="5" data-optgroup="1"><a tabindex="0" class="opt  " data-tokens="null" role="option" aria-disabled="false" aria-selected="false"><span class="text">Cottages</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="6" data-optgroup="1"><a tabindex="0" class="opt  " data-tokens="null" role="option" aria-disabled="false" aria-selected="false"><span class="text">Lands</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="7" data-optgroup="1"><a tabindex="0" class="opt  " data-tokens="null" role="option" aria-disabled="false" aria-selected="false"><span class="text">Castles</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="8" data-optgroup="1"><a tabindex="0" class="opt  " data-tokens="null" role="option" aria-disabled="false" aria-selected="false"><span class="text">Labour Camps</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="9" data-optgroup="1"><a tabindex="0" class="opt  " data-tokens="null" role="option" aria-disabled="false" aria-selected="false"><span class="text">Private Vacation Properties (Private Appartments)</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="10" data-optgroup="1"><a tabindex="0" class="opt  " data-tokens="null" role="option" aria-disabled="false" aria-selected="false"><span class="text">Public Vacation Properties (Public Appartments)</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li class="divider" data-optgroup="2div"></li><li class="dropdown-header " data-optgroup="2"><span class="text">Commercial</span></li><li data-original-index="11" data-optgroup="2"><a tabindex="0" class="opt  " data-tokens="null" role="option" aria-disabled="false" aria-selected="false"><span class="text">Offices</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="12" data-optgroup="2"><a tabindex="0" class="opt  " data-tokens="null" role="option" aria-disabled="false" aria-selected="false"><span class="text">Co-Offices</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="13" data-optgroup="2"><a tabindex="0" class="opt  " data-tokens="null" role="option" aria-disabled="false" aria-selected="false"><span class="text">Lands</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li class="divider" data-optgroup="3div"></li><li class="dropdown-header " data-optgroup="3"><span class="text">Industrial</span></li><li data-original-index="14" data-optgroup="3"><a tabindex="0" class="opt  " data-tokens="null" role="option" aria-disabled="false" aria-selected="false"><span class="text">Warehouses</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="15" data-optgroup="3"><a tabindex="0" class="opt  " data-tokens="null" role="option" aria-disabled="false" aria-selected="false"><span class="text">Stores</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="16" data-optgroup="3"><a tabindex="0" class="opt  " data-tokens="null" role="option" aria-disabled="false" aria-selected="false"><span class="text">Freezones</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="17" data-optgroup="3"><a tabindex="0" class="opt  " data-tokens="null" role="option" aria-disabled="false" aria-selected="false"><span class="text">Showrooms</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="18" data-optgroup="3"><a tabindex="0" class="opt  " data-tokens="null" role="option" aria-disabled="false" aria-selected="false"><span class="text">Lands</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li class="divider" data-optgroup="4div"></li><li class="dropdown-header " data-optgroup="4"><span class="text">Agricultural</span></li><li data-original-index="19" data-optgroup="4"><a tabindex="0" class="opt  " data-tokens="null" role="option" aria-disabled="false" aria-selected="false"><span class="text">Farms</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="20" data-optgroup="4"><a tabindex="0" class="opt  " data-tokens="null" role="option" aria-disabled="false" aria-selected="false"><span class="text">Farm Houses</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="21" data-optgroup="4"><a tabindex="0" class="opt  " data-tokens="null" role="option" aria-disabled="false" aria-selected="false"><span class="text">Lands</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li></ul></div>
+
+                                    <select id="type" class="form-control selectpicker search-fields" data-live-search="true" data-size="10" data-dropup-auto="false" tabindex="-98">
+                                        <option value="All Type">All Type</option>
+
+                                        <optgroup label="Residential">
+                                            <option value="Apartments/Flats">Apartments/Flats</option>
+                                            <option value="Houses">Houses</option>
+                                            <option value="Co-Homes">Co-Homes</option>
+                                            <option value="Villas">Villas</option>
+                                            <option value="Cottages">Cottages</option>
+                                            <option value="Residential Lands">Lands</option>
+                                            <option value="Castles">Castles</option>
+                                            <option value="Labour Camps">Labour Camps</option>
+                                            <option value="Private Vacation Properties(Private Appartments)">Private Vacation Properties (Private Appartments)</option>
+                                            <option value="Public Vacation Properties(Public Appartments)">Public Vacation Properties (Public Appartments)</option>
+                                        </optgroup>
+
+                                        <optgroup label="Commercial">
+                                            <option value="Offices">Offices</option>
+                                            <option value="Co-Offices">Co-Offices</option>
+                                            <option value="Commercial Lands">Lands</option>
+
+                                        </optgroup>
+
+                                        <optgroup label="Industrial">
+                                            <option value="Warehouses">Warehouses</option>
+                                            <option value="Stores">Stores</option>
+                                            <option value="Freezones">Freezones</option>
+                                            <option value="Showrooms">Showrooms</option>
+                                            <option value="Industrial Lands">Lands</option>
+
+                                        </optgroup>
+
+                                        <optgroup label="Agricultural">
+                                            <option value="Farms">Farms</option>
+                                            <option value="Farm Houses">Farm Houses</option>
+                                            <option value="Agricultural Lands">Lands</option>
+                                        </optgroup>
+                                    </select></div>
+                                </div>
+
+
+
+
+
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
+                                            <div class="btn-group bootstrap-select search-fields"><button type="button" class="btn dropdown-toggle btn-default" data-toggle="dropdown" role="button" data-id="bedroom" title="Bedroom"><span class="filter-option pull-left">Bedroom</span>&nbsp;<span class="bs-caret"><span class="caret"></span></span></button><div class="dropdown-menu open" role="combobox"><ul class="dropdown-menu inner" role="listbox" aria-expanded="false"><li data-original-index="0" class="selected"><a tabindex="0" class="" data-tokens="null" role="option" aria-disabled="false" aria-selected="true"><span class="text">Bedroom</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="1"><a tabindex="0" class="" data-tokens="null" role="option" aria-disabled="false" aria-selected="false"><span class="text">1</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="2"><a tabindex="0" class="" data-tokens="null" role="option" aria-disabled="false" aria-selected="false"><span class="text">2</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="3"><a tabindex="0" class="" data-tokens="null" role="option" aria-disabled="false" aria-selected="false"><span class="text">3</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="4"><a tabindex="0" class="" data-tokens="null" role="option" aria-disabled="false" aria-selected="false"><span class="text">4</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="5"><a tabindex="0" class="" data-tokens="null" role="option" aria-disabled="false" aria-selected="false"><span class="text">5</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="6"><a tabindex="0" class="" data-tokens="null" role="option" aria-disabled="false" aria-selected="false"><span class="text">6</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="7"><a tabindex="0" class="" data-tokens="null" role="option" aria-disabled="false" aria-selected="false"><span class="text">7</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="8"><a tabindex="0" class="" data-tokens="null" role="option" aria-disabled="false" aria-selected="false"><span class="text">8</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="9"><a tabindex="0" class="" data-tokens="null" role="option" aria-disabled="false" aria-selected="false"><span class="text">9</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="10"><a tabindex="0" class="" data-tokens="null" role="option" aria-disabled="false" aria-selected="false"><span class="text">10</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="11"><a tabindex="0" class="" data-tokens="null" role="option" aria-disabled="false" aria-selected="false"><span class="text">11</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="12"><a tabindex="0" class="" data-tokens="null" role="option" aria-disabled="false" aria-selected="false"><span class="text">12</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="13"><a tabindex="0" class="" data-tokens="null" role="option" aria-disabled="false" aria-selected="false"><span class="text">13</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="14"><a tabindex="0" class="" data-tokens="null" role="option" aria-disabled="false" aria-selected="false"><span class="text">14</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="15"><a tabindex="0" class="" data-tokens="null" role="option" aria-disabled="false" aria-selected="false"><span class="text">15</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="16"><a tabindex="0" class="" data-tokens="null" role="option" aria-disabled="false" aria-selected="false"><span class="text">16</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="17"><a tabindex="0" class="" data-tokens="null" role="option" aria-disabled="false" aria-selected="false"><span class="text">17</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="18"><a tabindex="0" class="" data-tokens="null" role="option" aria-disabled="false" aria-selected="false"><span class="text">18</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="19"><a tabindex="0" class="" data-tokens="null" role="option" aria-disabled="false" aria-selected="false"><span class="text">19</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="20"><a tabindex="0" class="" data-tokens="null" role="option" aria-disabled="false" aria-selected="false"><span class="text">20</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li></ul></div>
+                                            <select id="bedroom" class="selectpicker search-fields" tabindex="-98">
+                                                <option value="Bedroom">Bedroom</option>
+                                                <option value="1">1</option>
+                                                <option value="2">2</option>
+                                                <option value="3">3</option>
+                                                <option value="4">4</option>
+                                                <option value="5">5</option>
+                                                <option value="1">6</option>
+                                                <option value="2">7</option>
+                                                <option value="3">8</option>
+                                                <option value="4">9</option>
+                                                <option value="5">10</option>
+                                                <option value="1">11</option>
+                                                <option value="2">12</option>
+                                                <option value="3">13</option>
+                                                <option value="4">14</option>
+                                                <option value="5">15</option>
+                                                <option value="1">16</option>
+                                                <option value="2">17</option>
+                                                <option value="3">18</option>
+                                                <option value="4">19</option>
+                                                <option value="5">20</option>
+                                            </select></div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
+                                            <div class="btn-group bootstrap-select search-fields"><button type="button" class="btn dropdown-toggle btn-default" data-toggle="dropdown" role="button" data-id="bathroom" title="Bathroom"><span class="filter-option pull-left">Bathroom</span>&nbsp;<span class="bs-caret"><span class="caret"></span></span></button><div class="dropdown-menu open" role="combobox"><ul class="dropdown-menu inner" role="listbox" aria-expanded="false"><li data-original-index="0" class="selected"><a tabindex="0" class="" data-tokens="null" role="option" aria-disabled="false" aria-selected="true"><span class="text">Bathroom</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="1"><a tabindex="0" class="" data-tokens="null" role="option" aria-disabled="false" aria-selected="false"><span class="text">1</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="2"><a tabindex="0" class="" data-tokens="null" role="option" aria-disabled="false" aria-selected="false"><span class="text">2</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="3"><a tabindex="0" class="" data-tokens="null" role="option" aria-disabled="false" aria-selected="false"><span class="text">3</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="4"><a tabindex="0" class="" data-tokens="null" role="option" aria-disabled="false" aria-selected="false"><span class="text">4</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="5"><a tabindex="0" class="" data-tokens="null" role="option" aria-disabled="false" aria-selected="false"><span class="text">5</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="6"><a tabindex="0" class="" data-tokens="null" role="option" aria-disabled="false" aria-selected="false"><span class="text">6</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="7"><a tabindex="0" class="" data-tokens="null" role="option" aria-disabled="false" aria-selected="false"><span class="text">7</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="8"><a tabindex="0" class="" data-tokens="null" role="option" aria-disabled="false" aria-selected="false"><span class="text">8</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="9"><a tabindex="0" class="" data-tokens="null" role="option" aria-disabled="false" aria-selected="false"><span class="text">9</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="10"><a tabindex="0" class="" data-tokens="null" role="option" aria-disabled="false" aria-selected="false"><span class="text">10</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="11"><a tabindex="0" class="" data-tokens="null" role="option" aria-disabled="false" aria-selected="false"><span class="text">11</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="12"><a tabindex="0" class="" data-tokens="null" role="option" aria-disabled="false" aria-selected="false"><span class="text">12</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="13"><a tabindex="0" class="" data-tokens="null" role="option" aria-disabled="false" aria-selected="false"><span class="text">13</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="14"><a tabindex="0" class="" data-tokens="null" role="option" aria-disabled="false" aria-selected="false"><span class="text">14</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="15"><a tabindex="0" class="" data-tokens="null" role="option" aria-disabled="false" aria-selected="false"><span class="text">15</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="16"><a tabindex="0" class="" data-tokens="null" role="option" aria-disabled="false" aria-selected="false"><span class="text">16</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="17"><a tabindex="0" class="" data-tokens="null" role="option" aria-disabled="false" aria-selected="false"><span class="text">17</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="18"><a tabindex="0" class="" data-tokens="null" role="option" aria-disabled="false" aria-selected="false"><span class="text">18</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="19"><a tabindex="0" class="" data-tokens="null" role="option" aria-disabled="false" aria-selected="false"><span class="text">19</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="20"><a tabindex="0" class="" data-tokens="null" role="option" aria-disabled="false" aria-selected="false"><span class="text">20</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li></ul></div>
+
+                                            <select id="bathroom" class="selectpicker search-fields" tabindex="-98">
+                                                <option value="Bathroom">Bathroom</option>
+                                                <option value="1">1</option>
+                                                <option value="2">2</option>
+                                                <option value="3">3</option>
+                                                <option value="4">4</option>
+                                                <option value="5">5</option>
+                                                <option value="1">6</option>
+                                                <option value="2">7</option>
+                                                <option value="3">8</option>
+                                                <option value="4">9</option>
+                                                <option value="5">10</option>
+                                                <option value="1">11</option>
+                                                <option value="2">12</option>
+                                                <option value="3">13</option>
+                                                <option value="4">14</option>
+                                                <option value="5">15</option>
+                                                <option value="1">16</option>
+                                                <option value="2">17</option>
+                                                <option value="3">18</option>
+                                                <option value="4">19</option>
+                                                <option value="5">20</option>
+                                            </select></div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
+                                            <div class="btn-group bootstrap-select search-fields"><button type="button" class="btn dropdown-toggle btn-default" data-toggle="dropdown" role="button" data-id="balcony" title="Balcony"><span class="filter-option pull-left">Balcony</span>&nbsp;<span class="bs-caret"><span class="caret"></span></span></button><div class="dropdown-menu open" role="combobox"><ul class="dropdown-menu inner" role="listbox" aria-expanded="false"><li data-original-index="0" class="selected"><a tabindex="0" class="" data-tokens="null" role="option" aria-disabled="false" aria-selected="true"><span class="text">Balcony</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="1"><a tabindex="0" class="" data-tokens="null" role="option" aria-disabled="false" aria-selected="false"><span class="text">1</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="2"><a tabindex="0" class="" data-tokens="null" role="option" aria-disabled="false" aria-selected="false"><span class="text">2</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="3"><a tabindex="0" class="" data-tokens="null" role="option" aria-disabled="false" aria-selected="false"><span class="text">3</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="4"><a tabindex="0" class="" data-tokens="null" role="option" aria-disabled="false" aria-selected="false"><span class="text">4</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="5"><a tabindex="0" class="" data-tokens="null" role="option" aria-disabled="false" aria-selected="false"><span class="text">5</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="6"><a tabindex="0" class="" data-tokens="null" role="option" aria-disabled="false" aria-selected="false"><span class="text">6</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="7"><a tabindex="0" class="" data-tokens="null" role="option" aria-disabled="false" aria-selected="false"><span class="text">7</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="8"><a tabindex="0" class="" data-tokens="null" role="option" aria-disabled="false" aria-selected="false"><span class="text">8</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="9"><a tabindex="0" class="" data-tokens="null" role="option" aria-disabled="false" aria-selected="false"><span class="text">9</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="10"><a tabindex="0" class="" data-tokens="null" role="option" aria-disabled="false" aria-selected="false"><span class="text">10</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="11"><a tabindex="0" class="" data-tokens="null" role="option" aria-disabled="false" aria-selected="false"><span class="text">11</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="12"><a tabindex="0" class="" data-tokens="null" role="option" aria-disabled="false" aria-selected="false"><span class="text">12</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="13"><a tabindex="0" class="" data-tokens="null" role="option" aria-disabled="false" aria-selected="false"><span class="text">13</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="14"><a tabindex="0" class="" data-tokens="null" role="option" aria-disabled="false" aria-selected="false"><span class="text">14</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="15"><a tabindex="0" class="" data-tokens="null" role="option" aria-disabled="false" aria-selected="false"><span class="text">15</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="16"><a tabindex="0" class="" data-tokens="null" role="option" aria-disabled="false" aria-selected="false"><span class="text">16</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="17"><a tabindex="0" class="" data-tokens="null" role="option" aria-disabled="false" aria-selected="false"><span class="text">17</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="18"><a tabindex="0" class="" data-tokens="null" role="option" aria-disabled="false" aria-selected="false"><span class="text">18</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="19"><a tabindex="0" class="" data-tokens="null" role="option" aria-disabled="false" aria-selected="false"><span class="text">19</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="20"><a tabindex="0" class="" data-tokens="null" role="option" aria-disabled="false" aria-selected="false"><span class="text">20</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li></ul></div>
+                                            <select id="balcony" class="selectpicker search-fields" tabindex="-98">
+                                                <option value="Balcony">Balcony</option>
+                                                <option value="1">1</option>
+                                                <option value="2">2</option>
+                                                <option value="3">3</option>
+                                                <option value="4">4</option>
+                                                <option value="5">5</option>
+                                                <option value="1">6</option>
+                                                <option value="2">7</option>
+                                                <option value="3">8</option>
+                                                <option value="4">9</option>
+                                                <option value="5">10</option>
+                                                <option value="1">11</option>
+                                                <option value="2">12</option>
+                                                <option value="3">13</option>
+                                                <option value="4">14</option>
+                                                <option value="5">15</option>
+                                                <option value="1">16</option>
+                                                <option value="2">17</option>
+                                                <option value="3">18</option>
+                                                <option value="4">19</option>
+                                                <option value="5">20</option>
+                                            </select></div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
+                                            <div class="btn-group bootstrap-select search-fields"><button type="button" class="btn dropdown-toggle btn-default" data-toggle="dropdown" role="button" data-id="garage" title="Garage"><span class="filter-option pull-left">Garage</span>&nbsp;<span class="bs-caret"><span class="caret"></span></span></button><div class="dropdown-menu open" role="combobox"><div class="bs-searchbox"><input type="text" class="form-control" autocomplete="off" role="textbox" aria-label="Search"></div><ul class="dropdown-menu inner" role="listbox" aria-expanded="false"><li data-original-index="0" class="selected"><a tabindex="0" class="" data-tokens="null" role="option" aria-disabled="false" aria-selected="true"><span class="text">Garage</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="1"><a tabindex="0" class="" data-tokens="null" role="option" aria-disabled="false" aria-selected="false"><span class="text">1</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="2"><a tabindex="0" class="" data-tokens="null" role="option" aria-disabled="false" aria-selected="false"><span class="text">2</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="3"><a tabindex="0" class="" data-tokens="null" role="option" aria-disabled="false" aria-selected="false"><span class="text">3</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="4"><a tabindex="0" class="" data-tokens="null" role="option" aria-disabled="false" aria-selected="false"><span class="text">4</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="5"><a tabindex="0" class="" data-tokens="null" role="option" aria-disabled="false" aria-selected="false"><span class="text">5</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="6"><a tabindex="0" class="" data-tokens="null" role="option" aria-disabled="false" aria-selected="false"><span class="text">6</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="7"><a tabindex="0" class="" data-tokens="null" role="option" aria-disabled="false" aria-selected="false"><span class="text">7</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="8"><a tabindex="0" class="" data-tokens="null" role="option" aria-disabled="false" aria-selected="false"><span class="text">8</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="9"><a tabindex="0" class="" data-tokens="null" role="option" aria-disabled="false" aria-selected="false"><span class="text">9</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="10"><a tabindex="0" class="" data-tokens="null" role="option" aria-disabled="false" aria-selected="false"><span class="text">10</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="11"><a tabindex="0" class="" data-tokens="null" role="option" aria-disabled="false" aria-selected="false"><span class="text">11</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="12"><a tabindex="0" class="" data-tokens="null" role="option" aria-disabled="false" aria-selected="false"><span class="text">12</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="13"><a tabindex="0" class="" data-tokens="null" role="option" aria-disabled="false" aria-selected="false"><span class="text">13</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="14"><a tabindex="0" class="" data-tokens="null" role="option" aria-disabled="false" aria-selected="false"><span class="text">14</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="15"><a tabindex="0" class="" data-tokens="null" role="option" aria-disabled="false" aria-selected="false"><span class="text">15</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="16"><a tabindex="0" class="" data-tokens="null" role="option" aria-disabled="false" aria-selected="false"><span class="text">16</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="17"><a tabindex="0" class="" data-tokens="null" role="option" aria-disabled="false" aria-selected="false"><span class="text">17</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="18"><a tabindex="0" class="" data-tokens="null" role="option" aria-disabled="false" aria-selected="false"><span class="text">18</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="19"><a tabindex="0" class="" data-tokens="null" role="option" aria-disabled="false" aria-selected="false"><span class="text">19</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="20"><a tabindex="0" class="" data-tokens="null" role="option" aria-disabled="false" aria-selected="false"><span class="text">20</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li></ul></div>
+
+                                            <select id="garage" class="form-control selectpicker search-fields" data-live-search="true" tabindex="-98">
+                                                <option value="Garage">Garage</option>
+                                                <option value="1">1</option>
+                                                <option value="2">2</option>
+                                                <option value="3">3</option>
+                                                <option value="4">4</option>
+                                                <option value="5">5</option>
+                                                <option value="1">6</option>
+                                                <option value="2">7</option>
+                                                <option value="3">8</option>
+                                                <option value="4">9</option>
+                                                <option value="5">10</option>
+                                                <option value="1">11</option>
+                                                <option value="2">12</option>
+                                                <option value="3">13</option>
+                                                <option value="4">14</option>
+                                                <option value="5">15</option>
+                                                <option value="1">16</option>
+                                                <option value="2">17</option>
+                                                <option value="3">18</option>
+                                                <option value="4">19</option>
+                                                <option value="5">20</option>
+                                            </select></div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="range-slider area">
+                                    <label>Area <!--<span id="change_unit" style="cursor: pointer;">(Change Unit)</span>--></label>
+                                    <div data-min="0" data-max="10000" data-unit="" class="range-slider-ui ui-slider ui-slider-horizontal ui-widget ui-widget-content ui-corner-all" aria-disabled="false"><input type="text" class="min-value" disabled=""><input type="text" class="max-value" disabled=""><input type="text" class="min-value-hidden" style="display: none"><input type="text" class="max-value-hidden" style="display: none"><div class="ui-slider-range ui-widget-header ui-corner-all" style="left: 0%; width: 100%;"></div><a class="ui-slider-handle ui-state-default ui-corner-all" href="#" style="left: 0%;"></a><a class="ui-slider-handle ui-state-default ui-corner-all" href="#" style="left: 100%;"></a></div>
+
+                                </div>
+
+
+
+
+
+                                <div class="range-slider price" style="width:100%;float: left">
+                                    <label>Price <!--<a class="md-trigger change_currency" data-modal="modal-1"  style="cursor: pointer;">(Change Currency)</a> --></label>
+                                    <div id="price_box"> <div data-min="0" data-max="1000000" data-unit="" class="range-slider-ui ui-slider priceaaa ui-slider-horizontal ui-widget ui-widget-content ui-corner-all" aria-disabled="false"><input type="text" class="min-value" disabled=""><input type="text" class="max-value" disabled=""><input type="text" class="min-value-hidden" style="display: none"><input type="text" class="max-value-hidden" style="display: none"><div class="ui-slider-range ui-widget-header ui-corner-all" style="left: 0%; width: 100%;"></div><a class="ui-slider-handle ui-state-default ui-corner-all" href="#" style="left: 0%;"></a><a class="ui-slider-handle ui-state-default ui-corner-all" href="#" style="left: 100%;"></a></div> </div>
+                                </div>
+
+                              
+                                <a class="show-more-options" data-toggle="collapse" data-target="#options-contentx" style="display: inline-block;" aria-expanded="true">
+                                    <i class="fa fa-minus-circle"></i> Show More Options
+                                </a>
+
+
+
+                                <div id="options-contentx" class="collapse in" aria-expanded="true" style="">
+                                    <label class="margin-t-10">Features</label>
+                                    <div class="checkbox checkbox-theme checkbox-circle">
+                                        <input id="free_parking" type="checkbox">
+                                        <label for="free_parking">
+                                            Free Parking
+                                        </label>
+                                    </div>
+                                    <div class="checkbox checkbox-theme checkbox-circle">
+                                        <input id="air_condition" type="checkbox">
+                                        <label for="air_condition">
+                                            Air Condition
+                                        </label>
+                                    </div>
+                                    <div class="checkbox checkbox-theme checkbox-circle">
+                                        <input id="places_to_see" type="checkbox">
+                                        <label for="places_to_see">
+                                            Places to see
+                                        </label>
+                                    </div>
+                                    <div class="checkbox checkbox-theme checkbox-circle">
+                                        <input id="swimming_pool" type="checkbox">
+                                        <label for="swimming_pool">
+                                            Swimming Pool
+                                        </label>
+                                    </div>
+                                    <div class="checkbox checkbox-theme checkbox-circle">
+                                        <input id="laundry_room" type="checkbox">
+                                        <label for="laundry_room">
+                                            Laundry Room
+                                        </label>
+                                    </div>
+                                    <div class="checkbox checkbox-theme checkbox-circle">
+                                        <input id="window_covering" type="checkbox">
+                                        <label for="window_covering">
+                                            Window Covering
+                                        </label>
+                                    </div>
+                                    <div class="checkbox checkbox-theme checkbox-circle">
+                                        <input id="central_heating" type="checkbox">
+                                        <label for="central_heating">
+                                            Central Heating
+                                        </label>
+                                    </div>
+                                    <div class="checkbox checkbox-theme checkbox-circle">
+                                        <input id="alarm" type="checkbox">
+                                        <label for="alarm">
+                                            Alarm
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <!--<div class="form-group">
+                                    <div id="search_property" class="search-button" style="text-align: center;">Search</div>
+                                </div> -->
+                            </form>
+                        </div>
+              </div>
+
+
+
+        </div>
+        </div>
+     <script type="text/javascript">
+          function myFunction() {
+          var input, filter, ul, li, a, i;
+          input = document.getElementById("property_search");
+          filter = input.value.toUpperCase();
+          ul = document.getElementById("myUL");
+          li = ul.getElementsByTagName("li");
+          for (i = 0; i < li.length; i++) {
+              a = li[i].getElementsByTagName("div")[0];
+              if (a.innerHTML.toUpperCase().indexOf(filter) > -1) {
+                  li[i].style.display = "";
+              } else {
+                  li[i].style.display = "none";
+              }
+          }
+      }
+
+
+    // Functionality for Grid - List view of properties
+
+    // $('button').on('click',function(e) {
+    //     if ($(this).hasClass('grid')) {
+    //         $('#myUL>div').removeClass('list').addClass('grid');
+    //     }
+    //     else if($(this).hasClass('list')) {
+    //         $('#myUL>div').removeClass('grid').addClass('list');
+    //     }
+    // });
+
+
+    // Modal popup functionality
+
+
+      </script>    
+<%- include layouts/footer.ejs %>

@@ -1,0 +1,22 @@
+{
+  "name": "application-name",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "node app.js"
+  },
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "connect-flash": "^0.1.1",
+    "cookie-parser": "^1.0.1",
+    "ejs": "^1.0.0",
+    "express": "3.5.1",
+    "express-myconnection": "1.0.4",
+    "express-session": "^1.0.2",
+    "formidable": "^1.2.1",
+    "jade": "*",
+    "multer": "^1.3.1",
+    "mysql": "2.2.0",
+    "sendgrid": "^5.2.3"
+  }
+}

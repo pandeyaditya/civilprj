@@ -1,0 +1,67 @@
+<%- include layouts/header.ejs %>
+<nav class="navbar navbar-default" >
+<div class="container-fluid">
+<ul class="nav navbar-nav" style="font-size:12px; !important">
+<li><a href="/">Home</a></li>
+<li><a href="/properties">My Properties</a></li>
+<li><a href="/listing">Search Properties</a></li>
+
+<li><a href="/properties/add">Add Property</a></li>
+<li><a href="#">Profile</a></li>
+</ul>
+
+<ul class="nav navbar-nav pull-right">
+<li><a href="#">Welcome</a></li>
+<li><a href="/logout">Logout</a></li>
+</ul>
+</div>
+</nav>
+
+        <div class="container">
+         <div class="data-btn" style="margin-bottom: 10px;margin-top:10px;">
+           <button onClick="addUser();">+ Add New Property</button>
+         </div>
+         <div class="row">
+            <div class="col-md-12">
+            <table width="100%" class="table-hover" cellspacing="10">
+                <tr>
+                    <th width="50px">No</th>
+                    <th>Property</th>
+                    <th>Address</th>
+                    <th>Location</th>
+                    <th>Category</th>
+                    <th>Action</th>
+                </tr>
+                               
+                <% if(data.length){                                 
+                 for(var i = 0;i < data.length;i++) { %>                 
+                <tr>
+                    <td><%=(i+1)%></td>
+                    <td><%=data[i].property_title%></td>
+                    <td><%=data[i].address%></td>
+                    <td><%=data[i].location%></td>
+                    <td><%=data[i].category%></td>
+                    <td>
+                        <a class="btn btn-primary" href="../properties/edit/<%=data[i].id%>">Edit</a>                       
+                        <a class="btn btn-danger" href="../properties/delete/<%=data[i].id%>">Delete</a>                       
+                    </td>
+                </tr>
+            <% }
+            
+             }else{ %>
+                 <tr>
+                    <td colspan="3">No properties</td>
+                 </tr>
+            <% } %>
+                
+                              
+                
+            </table>
+         </div>
+        
+        </div>
+        </div>
+
+
+  
+<%- include layouts/footer.ejs %>
